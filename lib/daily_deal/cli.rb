@@ -1,3 +1,4 @@
+require 'pry'
 class DailyDeal::CLI
   def call
     puts "Welcome to Daily Deal Program."
@@ -7,11 +8,15 @@ class DailyDeal::CLI
   end
 
   def list_deals
-    puts "Today deals:"
-    @deals = DailyDeal::Deal.today
-    @deals.each_with_index(1) do |deal, i|
-      puts "#{i}. #{deal.title} - (#{deal.original_price}) #{deal.discount_price} - #{deal.bought} - #{deal.ratings}"
-      '-' * 50
+    puts "Deals of Today:"
+    DailyDeal::Deal.scrape_groupon
+
+    @deals = DailyDeal::Deal.all
+
+    @deals.each.with_index(1) do |deal, i|
+      puts "#{i}. #{deal.title} "
+      # - #{deal.ratings}
+      # i += 1
     end
   end
 
@@ -23,7 +28,8 @@ class DailyDeal::CLI
 
       if input.to_i > 0
         the_deal = @deals[input.to_i-1]
-        puts "#{the_deal.name} - #{the_deal.price} - #{the_deal.bought}"
+        puts "#{the_deal.title} - (#{the_deal.original_price}) #{the_deal.discount_price} - #{the_deal.bought} - #{the_deal.url} - #{the_deal.description}"
+        # binding.pry
       elsif input == "list"
         list_deals
       else

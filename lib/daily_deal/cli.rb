@@ -28,7 +28,7 @@ class DailyDeal::CLI
 
       if input.to_i > 0
         the_deal = @deals[input.to_i-1]
-        puts "#{the_deal.title} - (#{the_deal.original_price}) #{the_deal.discount_price} - #{the_deal.bought} - #{the_deal.url} - #{the_deal.description}"
+        puts "#{the_deal.title} - (#{the_deal.original_price}) #{the_deal.discount_price} - #{the_deal.bought} - #{the_deal.url} - #{the_deal.ratings}exitratings"
         # binding.pry
       elsif input == "list"
         list_deals

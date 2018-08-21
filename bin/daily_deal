@@ -1,9 +1,8 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "daily_deal"
+require_relative "../lib/daily_deal"
 
-require 'nokogiri'
-require 'open-uri'
+
 
 DailyDeal::CLI.new.call

@@ -1,0 +1,2 @@
+Validate so that -1, 100, bob
+Make sure scraping only happens once so there are no more objects made

@@ -1,20 +1,18 @@
-require 'pry'
+
 class DailyDeal::CLI
   def call
     puts "Welcome to Groupon Daily Deal Program."
-    "--" * 20
-    list_deals
+    puts "--" * 20
     menu
+    list_deals
     goodbye
   end
 
   def list_deals
     puts "Deals of Today:"
-    DailyDeal::Deal.scrape_groupon
+    DailyDeal::Scraper.scrape_groupon
 
-    @deals = DailyDeal::Deal.all
-
-    @deals.each.with_index(1) do |deal, i|
+    DailyDeal::Deal.all.each.with_index(1) do |deal, i|
       puts "#{i}. #{deal.title} "
     end
   end
@@ -24,14 +22,14 @@ class DailyDeal::CLI
     while input != "exit"
       puts "Enter the number of the deal you'd like more info on deals or type list, exit:"
       input = gets.strip.downcase
-
       if input.to_i > 0
-        the_deal = @deals[input.to_i-1]
-        puts "#{the_deal.title} - (#{the_deal.original_price}) #{the_deal.discount_price} - #{the_deal.bought} - #{the_deal.url} - #{the_deal.ratings}ratings"
-        # binding.pry
+        the_deal = DailyDeal::Deal.all[input.to_i-1]
+        puts "#{the_deal.title}"
+        puts "(#{the_deal.original_price})#{the_deal.discount_price} #{the_deal.bought} #{the_deal.ratings}ratings "
+        puts "#{the_deal.url}"
       elsif input == "list"
-        list_deals
-      elsif input != "list" || input != "exit"
+        list_deals unless 
+      elsif input != "list" || input != "exit" || input < 0
         puts "Not sure what you want, type list or exit."
       end
     end

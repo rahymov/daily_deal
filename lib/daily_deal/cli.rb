@@ -25,10 +25,12 @@ class DailyDeal::CLI
       if input.to_i > 0 && input.to_i - 1 < DailyDeal::Deal.all.length
         the_deal = DailyDeal::Deal.all[input.to_i-1]
         # binding.pry
-        puts "#{the_deal.title}"
-        puts "(#{the_deal.original_price})#{the_deal.discount_price} #{the_deal.bought} #{the_deal.ratings}ratings "
+        puts "Tite: #{the_deal.title}"
+        puts "Price: (#{the_deal.original_price})#{the_deal.discount_price} "
+        puts "Bought: #{the_deal.bought}"
         puts "#{the_deal.url}"
       elsif input == "list"
+        DailyDeal::Deal.all.clear
         list_deals
       elsif input != "list" || input != "exit" || input < 0
         puts "Not sure what you want, type list or exit."

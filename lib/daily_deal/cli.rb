@@ -3,37 +3,36 @@ class DailyDeal::CLI
   def call
     puts "Welcome to Groupon Daily Deal Program."
     puts "--" * 20
-    menu
+    DailyDeal::Scraper.scrape_groupon
     list_deals
-    goodbye
+    menu
   end
 
   def list_deals
     puts "Deals of Today:"
-    DailyDeal::Scraper.scrape_groupon
-
     DailyDeal::Deal.all.each.with_index(1) do |deal, i|
       puts "#{i}. #{deal.title} "
     end
   end
 
   def menu
-    input = nil
-    while input != "exit"
+    @input = ""
+    while @input != "exit"
       puts "Enter the number of the deal you'd like more info on deals or type list, exit:"
-      input = gets.strip.downcase
-      if input.to_i > 0 && input.to_i - 1 < DailyDeal::Deal.all.length
-        the_deal = DailyDeal::Deal.all[input.to_i-1]
-        # binding.pry
+      @input = gets.strip.downcase
+
+      if @input.to_i.between?(1,DailyDeal::Deal.all.length)
+        the_deal = DailyDeal::Deal.all[@input.to_i-1]
         puts "Tite: #{the_deal.title}"
         puts "Price: (#{the_deal.original_price})#{the_deal.discount_price} "
         puts "Bought: #{the_deal.bought}"
         puts "#{the_deal.url}"
-      elsif input == "list"
-        DailyDeal::Deal.all.clear
+      elsif @input == "list"
         list_deals
-      elsif input != "list" || input != "exit" || input < 0
+      elsif @input == "list" || @input.to_i < 0 || @input == "exit"
         puts "Not sure what you want, type list or exit."
+      elsif @input == "exit"
+        goodbye
       end
     end
   end

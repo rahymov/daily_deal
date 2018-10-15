@@ -29,7 +29,7 @@ class DailyDeal::CLI
         puts "#{the_deal.url}"
       elsif @input == "list"
         list_deals
-      elsif @input == "list" || @input.to_i < 0 || @input == "exit"
+      elsif @input == "list" || @input.to_i < 0 
         puts "Not sure what you want, type list or exit."
       elsif @input == "exit"
         goodbye

@@ -1,8 +1,7 @@
 # Groupon DailyDeal
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/daily_deal`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to daily_deal gem! daily_deal gem simply get daily deals from [Groupon Daily Deal](https://www.groupon.com/occasion/deals-of-the-day).
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -20,9 +19,8 @@ Or install it yourself as:
 
     $ gem install daily_deal
 
-## Usage
-
-TODO: Write usage instructions here
+## Tutorial
+Here is [tutorial](https://youtu.be/wb0LnbVQtV8) video how to use daily_deal cli gem.
 
 ## Development
 
@@ -32,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/daily_deal. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at [github](https://github.com/rahymov/daily_deal).
 
 ## License
 
@@ -40,4 +38,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the DailyDeal project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/daily_deal/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the DailyDeal project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/rahymov/daily_deal/blob/master/CODE_OF_CONDUCT.md).

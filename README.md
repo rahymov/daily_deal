@@ -1,6 +1,6 @@
 # Groupon DailyDeal
 
-Welcome to daily_deal gem! daily_deal gem simply get daily deals from [Groupon Daily Deal](https://www.groupon.com/occasion/deals-of-the-day).
+Welcome to `daily_deal gem`! daily_deal gem simply get daily deals from [Groupon Daily Deal](https://www.groupon.com/occasion/deals-of-the-day).
 
 
 ## Installation
